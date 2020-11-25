@@ -1,1 +1,10 @@
-
+import pandas as pd
+import numpy as np
+import os 
+date=pd.read_excel('K:\\xionghuan\\animal.xls')
+date[date.目=='偶蹄目'].to_excel('K:\\xionghuan\\animal_1.xls')
+date[date.目=='奇蹄目'].to_excel('K:\\xionghuan\\animal_2.xls')
+df1 = pd.DataFrame(pd.read_excel('K:\\xionghuan\\animal_1.xls',sheet_name = 'Sheet1'))
+df2 = pd.DataFrame(pd.read_excel('K:\\xionghuan\\animal_2.xls',sheet_name = 'Sheet1'))
+result = pd.concat([df1,df2],sort = False)
+result.to_excel('K:\\xionghuan\\animal_3.xls',index=False)
